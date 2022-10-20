@@ -1,9 +1,10 @@
 import "./home.css";
-import { Navbar } from "../../components";
+import { Navbar, Header } from "../../components";
 const Home = () => {
   return (
     <div>
       <Navbar />
+      <Header />
     </div>
   );
 };
