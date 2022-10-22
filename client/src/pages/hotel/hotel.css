@@ -6,6 +6,47 @@
     gap: 20px;
 }
 
+.slider {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.423);
+    z-index: 999;
+    align-items: center;
+    display: flex;
+}
+
+.sliderWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.sliderImg {
+    width: 80%;
+    height: 80vh;
+}
+
+.close {
+    color: lightgray;
+    font-size: 2rem;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.arrow {
+    color: lightgray;
+    font-size: 3rem;
+    margin: 20px;
+    cursor: pointer;
+}
+
 .hotelWrapper {
     width: 100%;
     max-width: 1024px;
