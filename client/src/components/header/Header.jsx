@@ -1,4 +1,10 @@
 import "./header.css";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import { DateRange } from "react-date-range";
+import { useState } from "react";
+import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBed,
@@ -8,11 +14,6 @@ import {
   faPlane,
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
-import { DateRange } from "react-date-range";
-import { useState } from "react";
-import { format } from "date-fns";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -31,6 +32,8 @@ const Header = ({ type }) => {
     room: 1,
   });
 
+  const navigate = useNavigate();
+
   const handleOption = (name, operation) => {
     setOptions((prev) => {
       return {
@@ -40,7 +43,9 @@ const Header = ({ type }) => {
     });
   };
 
-  const handleSearch = () => {};
+  const handleSearch = () => {
+    navigate("/hotels", { state: { destination, options, date } });
+  };
 
   return (
     <header className="header">
