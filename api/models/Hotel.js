@@ -21,14 +21,12 @@ const hotelSchema = new mongoose.Schema({
     type: String,
     required: [true, "A hotel must have distance"],
   },
-  photos: {
-    type: [String],
-  },
+  photos: [String],
   title: {
     type: String,
     required: [true, "A hotel must have a title"],
   },
-  desc: {
+  description: {
     type: String,
     required: [true, "A hotel must have a description"],
   },

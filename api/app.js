@@ -1,5 +1,4 @@
 import express from "express";
-import authRoute from "./routes/auth.js";
 import userRoutes from "./routes/userRoutes.js";
 import hotelRoutes from "./routes/hotelRoutes.js";
 import roomRoutes from "./routes/roomRoutes.js";
@@ -11,7 +10,6 @@ const app = express();
 //MIDDLEWARES
 app.use(express.json());
 
-app.use("/api/auth", authRoute);
 app.use("/api/users", userRoutes);
 app.use("/api/hotels", hotelRoutes);
 app.use("/api/rooms", roomRoutes);

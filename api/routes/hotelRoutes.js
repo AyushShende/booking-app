@@ -1,16 +1,15 @@
 import express from "express";
 const router = express.Router();
-
 import {
   createHotel,
   updateHotel,
   deleteHotel,
   getHotel,
-  getHotels,
+  getAllHotels,
 } from "../controllers/hotelController.js";
 
-router.route("/").post(createHotel).get(getHotels);
+router.route("/").get(getAllHotels).post(createHotel);
 
-router.route("/:id").patch(updateHotel).delete(deleteHotel).get(getHotel);
+router.route("/:id").get(getHotel).patch(updateHotel).delete(deleteHotel);
 
 export default router;
