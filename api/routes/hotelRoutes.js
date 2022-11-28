@@ -6,6 +6,7 @@ import {
   deleteHotel,
   getHotel,
   getAllHotels,
+  removeRoomsOnHotelDelete,
 } from "../controllers/hotelController.js";
 import protect from "../middlewares/protect.js";
 import restrictTo from "../middlewares/restrict.js";
@@ -19,6 +20,6 @@ router
   .route("/:id")
   .get(getHotel)
   .patch(protect, restrictTo("admin"), updateHotel)
-  .delete(protect, restrictTo("admin"), deleteHotel);
+  .delete(protect, restrictTo("admin"), removeRoomsOnHotelDelete, deleteHotel);
 
 export default router;

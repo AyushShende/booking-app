@@ -13,9 +13,13 @@ export const createOne = (Model) =>
     });
   });
 
-export const getOne = (Model) =>
+export const getOne = (Model, popOptions) =>
   catchAsync(async (req, res, next) => {
-    const doc = await Model.findById(req.params.id);
+    let query = Model.findById(req.params.id);
+
+    if (popOptions) query.populate(popOptions);
+
+    const doc = await query;
 
     if (!doc) {
       return next(new AppError("No document found with that ID", 404));

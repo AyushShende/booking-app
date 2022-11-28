@@ -36,9 +36,6 @@ const hotelSchema = new mongoose.Schema(
       min: 0,
       max: 5,
     },
-    rooms: {
-      type: [String],
-    },
     cheapestPrice: {
       type: Number,
       required: [true, "A hotel must have a cheapest price"],
@@ -48,7 +45,17 @@ const hotelSchema = new mongoose.Schema(
       default: false,
     },
   },
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  },
   { timestamps: true }
 );
+
+hotelSchema.virtual("rooms", {
+  ref: "Room",
+  foreignField: "hotel",
+  localField: "_id",
+});
 
 export default mongoose.model("Hotel", hotelSchema);
