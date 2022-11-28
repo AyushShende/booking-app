@@ -4,12 +4,12 @@ import hotelRoutes from "./routes/hotelRoutes.js";
 import roomRoutes from "./routes/roomRoutes.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import AppError from "./utils/appError.js";
-
+import cookieParser from "cookie-parser";
 const app = express();
 
 //MIDDLEWARES
+app.use(cookieParser());
 app.use(express.json());
-
 app.use("/api/users", userRoutes);
 app.use("/api/hotels", hotelRoutes);
 app.use("/api/rooms", roomRoutes);
